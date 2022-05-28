@@ -1,0 +1,102 @@
+openapi: "3.0.3"
+
+info:
+  title: Pgenie API
+  version: "1.0"
+
+paths:
+
+  /codegen:
+    summary: Code generator
+    post:
+      summary: Process input and generate code
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/sourceFiles"
+      responses:
+        200:
+          description: Generated
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      $ref: "#/components/schemas/path"
+                    contents:
+                      type: string
+                      minLength: 1
+                      maxLength: 100000
+                  required:
+                    - name
+                    - contents
+        400:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+components:
+  schemas:
+
+    sourceFiles:
+      type: object
+      properties:
+        project:
+          type: string
+          minLength: 1
+          maxLength: 10000
+        migrations:
+          $ref: "#/components/schemas/migrationFiles"
+        queries:
+          $ref: "#/components/schemas/queryFiles"
+      required:
+        - project
+        - migrations
+        - queries
+
+    migrationFiles:
+      type: array
+      items:
+        type: object
+        properties:
+          name:
+            $ref: "#/components/schemas/path"
+          contents:
+            type: string
+            minLength: 1
+            maxLength: 100000
+        required:
+          - name
+          - contents
+
+    queryFiles:
+      type: array
+      items:
+        type: object
+        properties:
+          name:
+            $ref: "#/components/schemas/path"
+          contents:
+            type: string
+            minLength: 1
+            maxLength: 100000
+        required:
+          - name
+          - contents
+
+    path:
+      type: string
+      minLength: 1
+      maxLength: 200
+
+    errorMessage:
+      type: string
+      minLength: 1
+      maxLength: 200

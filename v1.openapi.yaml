@@ -21,19 +21,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    name:
-                      $ref: "#/components/schemas/path"
-                    contents:
-                      type: string
-                      minLength: 1
-                      maxLength: 100000
-                  required:
-                    - name
-                    - contents
+                $ref: "#/components/schemas/generatedFiles"
         400:
           description: Code generation error
           content:
@@ -72,19 +60,50 @@ components:
     migrationFiles:
       type: array
       items:
-        type: object
-        properties:
-          name:
-            $ref: "#/components/schemas/path"
-          contents:
-            type: string
-            minLength: 1
-            maxLength: 100000
-        required:
-          - name
-          - contents
+        $ref: "#/components/schemas/migrationFile"
+
+    migrationFile:
+      type: object
+      properties:
+        name:
+          $ref: "#/components/schemas/path"
+        contents:
+          type: string
+          minLength: 1
+          maxLength: 100000
+      required:
+        - name
+        - contents
 
     queryFiles:
+      type: array
+      items:
+        $ref: "#/components/schemas/queryFile"
+
+    queryFile:
+      type: object
+      properties:
+        name:
+          $ref: "#/components/schemas/path"
+        contents:
+          type: string
+          minLength: 1
+          maxLength: 100000
+      required:
+        - name
+        - contents
+
+    path:
+      type: string
+      minLength: 1
+      maxLength: 200
+
+    message:
+      type: string
+      minLength: 1
+      maxLength: 200
+
+    generatedFiles:
       type: array
       items:
         type: object
@@ -98,13 +117,3 @@ components:
         required:
           - name
           - contents
-
-    path:
-      type: string
-      minLength: 1
-      maxLength: 200
-
-    message:
-      type: string
-      minLength: 1
-      maxLength: 200

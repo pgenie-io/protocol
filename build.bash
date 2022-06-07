@@ -9,5 +9,5 @@ function process_openapi {
 }
 
 rm -rf genned-api-for
-
 process_openapi haskell
+process_openapi haskell-http-client

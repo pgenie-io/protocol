@@ -14,14 +14,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/sourceFiles"
+              $ref: "#/components/schemas/files"
       responses:
         200:
           description: Generated
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/generatedFiles"
+                $ref: "#/components/schemas/files"
         400:
           description: Code generation error
           content:
@@ -41,69 +41,7 @@ components:
             $ref: "#/components/schemas/message"
 
   schemas:
-    sourceFiles:
-      type: object
-      properties:
-        project:
-          type: string
-          minLength: 1
-          maxLength: 10000
-        migrations:
-          $ref: "#/components/schemas/migrationFiles"
-        queries:
-          $ref: "#/components/schemas/queryFiles"
-      required:
-        - project
-        - migrations
-        - queries
-
-    migrationFiles:
-      type: array
-      items:
-        $ref: "#/components/schemas/migrationFile"
-
-    migrationFile:
-      type: object
-      properties:
-        name:
-          $ref: "#/components/schemas/path"
-        contents:
-          type: string
-          minLength: 1
-          maxLength: 100000
-      required:
-        - name
-        - contents
-
-    queryFiles:
-      type: array
-      items:
-        $ref: "#/components/schemas/queryFile"
-
-    queryFile:
-      type: object
-      properties:
-        name:
-          $ref: "#/components/schemas/path"
-        contents:
-          type: string
-          minLength: 1
-          maxLength: 100000
-      required:
-        - name
-        - contents
-
-    path:
-      type: string
-      minLength: 1
-      maxLength: 200
-
-    message:
-      type: string
-      minLength: 1
-      maxLength: 200
-
-    generatedFiles:
+    files:
       type: array
       items:
         type: object
@@ -117,3 +55,15 @@ components:
         required:
           - name
           - contents
+      minItems: 1
+      maxItems: 1000
+
+    path:
+      type: string
+      minLength: 1
+      maxLength: 200
+
+    message:
+      type: string
+      minLength: 1
+      maxLength: 200

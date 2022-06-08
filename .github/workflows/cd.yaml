@@ -14,52 +14,26 @@ jobs:
 
   deploy-client-v1:
     name: Deploy the Haskell client lib
-    env:
-      DESTINATION: pgenie-tech/api-client-v1
     runs-on: ubuntu-latest
     steps:
-
-      - name: Check out the source code
-        uses: actions/checkout@v3.0.2
-
-      - name: Generate code
-        uses: craicoverflow/openapi-generator-generate-action@v1.2.1
+      - uses: nikita-volkov/generate-and-deploy-openapi@v1
         with:
+          destination: pgenie-tech/api-client-v1
           generator: haskell-http-client
-          input: v1.openapi.yaml
-          output: dist
-
-      - name: Push directory to another repository
-        uses: leigholiver/commit-with-deploy-key@v1.0.3
-        with:
-          source: dist
-          destination_repo: ${{ env.DESTINATION }}
-          git_username: ${{ env.NAME }}
-          git_email: ${{ env.EMAIL }}
-          deploy_key: ${{ secrets.DEPLOY_KEY }}
+          schema: v1.openapi.yaml
+          username: ${{ env.NAME }}
+          email: ${{ env.EMAIL }}
+          deploy-key: ${{ secrets.DEPLOY_KEY }}
 
   deploy-server-v1:
     name: Deploy the Haskell server lib
-    env:
-      DESTINATION: pgenie-tech/api-server-v1
     runs-on: ubuntu-latest
     steps:
-
-      - name: Check out the source code
-        uses: actions/checkout@v3.0.2
-
-      - name: Generate code
-        uses: craicoverflow/openapi-generator-generate-action@v1.2.1
+      - uses: nikita-volkov/generate-and-deploy-openapi@v1
         with:
+          destination: pgenie-tech/api-server-v1
           generator: haskell
-          input: v1.openapi.yaml
-          output: dist
-
-      - name: Push directory to another repository
-        uses: leigholiver/commit-with-deploy-key@v1.0.3
-        with:
-          source: dist
-          destination_repo: ${{ env.DESTINATION }}
-          git_username: ${{ env.NAME }}
-          git_email: ${{ env.EMAIL }}
-          deploy_key: ${{ secrets.DEPLOY_KEY }}
+          schema: v1.openapi.yaml
+          username: ${{ env.NAME }}
+          email: ${{ env.EMAIL }}
+          deploy-key: ${{ secrets.DEPLOY_KEY }}

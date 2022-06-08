@@ -15,7 +15,7 @@ jobs:
     name: Deploy the Haskell client lib
     runs-on: ubuntu-latest
     steps:
-      - uses: nikita-volkov/generate-and-deploy-openapi@v1
+      - uses: nikita-volkov/generate-and-deploy-openapi@v1.1
         with:
           destination: pgenie-tech/api-client-v1
           generator: haskell-http-client
@@ -28,7 +28,7 @@ jobs:
     name: Deploy the Haskell server lib
     runs-on: ubuntu-latest
     steps:
-      - uses: nikita-volkov/generate-and-deploy-openapi@v1
+      - uses: nikita-volkov/generate-and-deploy-openapi@v1.1
         with:
           destination: pgenie-tech/api-server-v1
           generator: haskell

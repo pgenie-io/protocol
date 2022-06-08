@@ -1,0 +1,39 @@
+name: Generate and deploy artifacts
+
+on:
+  push:
+    branches:
+      - master
+      - dev
+
+env:
+  NAME: github-actions
+  EMAIL: github-actions@pgenie.tech
+
+jobs:
+
+  deploy-client-v1:
+    name: Deploy the Haskell client lib
+    runs-on: ubuntu-latest
+    steps:
+      - uses: nikita-volkov/generate-and-deploy-openapi@v1
+        with:
+          destination: pgenie-tech/api-client-v1
+          generator: haskell-http-client
+          schema: v1.openapi.yaml
+          username: ${{ env.NAME }}
+          email: ${{ env.EMAIL }}
+          deploy-key: ${{ secrets.CLIENT_DEPLOY_KEY }}
+
+  deploy-server-v1:
+    name: Deploy the Haskell server lib
+    runs-on: ubuntu-latest
+    steps:
+      - uses: nikita-volkov/generate-and-deploy-openapi@v1
+        with:
+          destination: pgenie-tech/api-server-v1
+          generator: haskell
+          schema: v1.openapi.yaml
+          username: ${{ env.NAME }}
+          email: ${{ env.EMAIL }}
+          deploy-key: ${{ secrets.SERVER_DEPLOY_KEY }}

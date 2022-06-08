@@ -4,6 +4,9 @@ info:
   title: Pgenie API
   version: "1.0"
 
+servers:
+  - url: https://pgenie.tech/api/v1
+
 paths:
   /codegen:
     summary: Code generator

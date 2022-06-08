@@ -8,7 +8,8 @@ on:
 
 env:
   DESTINATION: pgenie-tech/client
-  AUTHOR_EMAIL: github-actions@pgenie.tech
+  NAME: pgenie-github-actions
+  EMAIL: github-actions@pgenie.tech
 
 jobs:
 
@@ -32,4 +33,6 @@ jobs:
         with:
           source: dist
           destination_repo: ${{ env.DESTINATION }}
+          git_username: ${{ env.NAME }}
+          git_email: ${{ env.EMAIL }}
           deploy_key: ${{ secrets.DEPLOY_KEY }}

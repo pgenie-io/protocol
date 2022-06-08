@@ -1,0 +1,35 @@
+name: Generate and deploy artifacts
+
+on:
+  push:
+    branches:
+      - master
+      - dev
+
+env:
+  DESTINATION: pgenie-tech/client
+  AUTHOR_EMAIL: github-actions@pgenie.tech
+
+jobs:
+
+  generate-client:
+    name: Update Haskell HTTP-client lib
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Check out the source code
+        uses: actions/checkout@v3.0.2
+
+      - name: Generate code
+        uses: craicoverflow/openapi-generator-generate-action@v1.2.1
+        with:
+          generator: haskell-http-client
+          input: v1.openapi.yaml
+          output: dist
+
+      - name: Push directory to another repository
+        uses: leigholiver/commit-with-deploy-key@v1.0.3
+        with:
+          source: dist
+          destination_repo: ${{ env.DESTINATION }}
+          deploy_key: ${{ secrets.DEPLOY_KEY }}

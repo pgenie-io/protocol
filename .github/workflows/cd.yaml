@@ -23,7 +23,7 @@ jobs:
           schema: v1.openapi.yaml
           username: ${{ env.NAME }}
           email: ${{ env.EMAIL }}
-          deploy-key: ${{ secrets.DEPLOY_KEY }}
+          deploy-key: ${{ secrets.CLIENT_DEPLOY_KEY }}
 
   deploy-server-v1:
     name: Deploy the Haskell server lib
@@ -36,4 +36,4 @@ jobs:
           schema: v1.openapi.yaml
           username: ${{ env.NAME }}
           email: ${{ env.EMAIL }}
-          deploy-key: ${{ secrets.DEPLOY_KEY }}
+          deploy-key: ${{ secrets.SERVER_DEPLOY_KEY }}

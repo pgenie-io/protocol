@@ -1,0 +1,12 @@
+
+ProcessRequest:
+  product:
+    org: Text
+    name: Text
+    migrations: List (Text, Text)
+    queries: List (Text, Text)
+
+ProcessResponse:
+  sum:
+    failed: Text
+    generated: List (Text, Text)

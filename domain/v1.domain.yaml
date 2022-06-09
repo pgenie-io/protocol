@@ -1,9 +1,12 @@
 
-Request:
-  sum:
-    processFiles: List (Text, Text)
+ProcessRequest:
+  product:
+    org: Text
+    name: Text
+    migrations: List (Text, Text)
+    queries: List (Text, Text)
 
-Response:
+ProcessResponse:
   sum:
-    error: Text
-    processedFiles: List (Text, Text)
+    failed: Text
+    generated: List (Text, Text)

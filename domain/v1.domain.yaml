@@ -3,12 +3,12 @@ Request:
   sum:
     process:
       product:
-        org: Text
-        name: Text
-        migrations: List (Text, Text)
-        queries: List (Text, Text)
+        org: Name
+        name: Name
+        migrations: List (Path, Text)
+        queries: List (Path, Text)
 
 Response:
   sum:
     failed: Text
-    generated: List (Text, Text)
+    generated: List (Path, Text)

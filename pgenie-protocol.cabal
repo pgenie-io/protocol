@@ -15,6 +15,7 @@ library
   hs-source-dirs: library
   exposed-modules:
     PgenieProtocol.Model
+  other-modules:
     PgenieProtocol.Prelude
   build-depends:
     coalmine,

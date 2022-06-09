@@ -1,12 +1,14 @@
 
-ProcessRequest:
-  product:
-    org: Text
-    name: Text
-    migrations: List (Text, Text)
-    queries: List (Text, Text)
+Request:
+  sum:
+    process:
+      product:
+        org: Text
+        name: Text
+        migrations: List (Text, Text)
+        queries: List (Text, Text)
 
-ProcessResponse:
+Response:
   sum:
     failed: Text
     generated: List (Text, Text)

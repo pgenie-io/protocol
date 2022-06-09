@@ -106,12 +106,6 @@ packages:
     hackage: vector-extras-0.2.7
 snapshots:
 - completed:
-    sha256: e5a3c9e821b37d7cfc88b40df071281a82d6be4fcba14dc45b952f6e241657a4
-    size: 705
-    url: https://raw.githubusercontent.com/nikita-volkov/stack-snapshot/1a46ae83dccb78641c5119a3aa1fc707ca3b7999/snapshot.yaml
-  original:
-    url: https://raw.githubusercontent.com/nikita-volkov/stack-snapshot/1a46ae83dccb78641c5119a3aa1fc707ca3b7999/snapshot.yaml
-- completed:
     sha256: 869e23c4f7367895ae63b129255b70bc8b4b965229aa258f6c50141c6b10ae76
     size: 607265
     url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/nightly/2022/6/8.yaml

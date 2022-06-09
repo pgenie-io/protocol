@@ -1,1 +1,18 @@
-resolver: https://raw.githubusercontent.com/nikita-volkov/stack-snapshot/1a46ae83dccb78641c5119a3aa1fc707ca3b7999/snapshot.yaml
+resolver: nightly-2022-06-08
+extra-deps:
+  - git: https://github.com/nikita-volkov/coalmine
+    commit: 48e79f118186b297585e7f6075270a754979e255
+  - git: https://github.com/nikita-volkov/moore-machines
+    commit: 7e95c33b203a1cfe42dbc0e0de3cec8e6fe94290
+  - git: https://github.com/nikita-volkov/isomorphism-class
+    commit: 6030243b4e2c28ab3c010b5f06cb6514d70f9c35
+  - git: https://github.com/nikita-volkov/structure-kit
+    commit: 807f9b40e15d2624f8a679c35a978c2b21a36bfe
+  - aeson-value-parser-0.19.7
+  - cereal-unordered-containers-0.1
+  - cereal-data-dword-0.1.1
+  - domain-aeson-0.1
+  - domain-cereal-0.1
+  - timestamp-0.2
+  - leb128-cereal-1.2
+  - vector-extras-0.2.7

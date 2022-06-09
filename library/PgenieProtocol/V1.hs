@@ -1,4 +1,4 @@
-module PgenieProtocol.Model where
+module PgenieProtocol.V1 where
 
 import qualified Domain
 import qualified DomainCereal

@@ -14,7 +14,7 @@ library
   import: language-settings
   hs-source-dirs: library
   exposed-modules:
-    PgenieProtocol.Model
+    PgenieProtocol.V1
   other-modules:
     PgenieProtocol.Prelude
   build-depends:

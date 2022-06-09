@@ -1,9 +1,9 @@
 
 Request:
   sum:
-    processFiles: List (Text, ByteString)
+    processFiles: List (Text, Text)
 
 Response:
   sum:
     error: Text
-    processedFiles: List (Text, ByteString)
+    processedFiles: List (Text, Text)

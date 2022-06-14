@@ -43,5 +43,8 @@ deriving via
 instance BroadPrinting Request where
   toBroadBuilder = to . renderAsYamlText
 
+instance BroadPrinting RequestProcess where
+  toBroadBuilder = to . renderAsYamlText
+
 instance BroadPrinting Response where
   toBroadBuilder = to . renderAsYamlText

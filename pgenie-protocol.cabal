@@ -23,5 +23,7 @@ library
     domain-aeson,
     domain-cereal,
     domain-optics,
+    generic-arbitrary,
     optics,
+    QuickCheck,
     rerebase,

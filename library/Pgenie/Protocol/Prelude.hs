@@ -1,4 +1,4 @@
-module PgenieProtocol.Prelude
+module Pgenie.Protocol.Prelude
   ( module Exports,
   )
 where

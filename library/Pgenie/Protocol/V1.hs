@@ -1,9 +1,9 @@
-module PgenieProtocol.V1 where
+module Pgenie.Protocol.V1 where
 
 import qualified Domain
 import qualified DomainCereal
 import qualified DomainOptics
-import PgenieProtocol.Prelude
+import Pgenie.Protocol.Prelude
 import qualified Test.QuickCheck.Arbitrary.Generic as GenericArbitrary
 
 Domain.declare

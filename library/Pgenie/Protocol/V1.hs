@@ -1,6 +1,7 @@
 module Pgenie.Protocol.V1 where
 
 import qualified Domain
+import qualified DomainAeson
 import qualified DomainCereal
 import qualified DomainOptics
 import Pgenie.Protocol.Prelude
@@ -17,6 +18,7 @@ Domain.declare
         Domain.genericDeriver,
         Domain.constructorIsLabelDeriver,
         Domain.accessorIsLabelDeriver,
+        DomainAeson.toJsonDeriver,
         DomainOptics.labelOpticDeriver,
         DomainCereal.serializeDeriver
       ]
@@ -37,3 +39,9 @@ deriving via
   (GenericArbitrary.GenericArbitrary Response)
   instance
     GenericArbitrary.Arbitrary Response
+
+instance BroadPrinting Request where
+  toBroadBuilder = to . renderAsYamlText
+
+instance BroadPrinting Response where
+  toBroadBuilder = to . renderAsYamlText

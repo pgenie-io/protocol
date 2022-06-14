@@ -27,3 +27,16 @@ library
     optics,
     QuickCheck,
     rerebase,
+
+test-suite test
+  import: language-settings
+  type: exitcode-stdio-1.0
+  hs-source-dirs: test
+  main-is: Main.hs
+  other-modules:
+    TestSuites.Serialization
+  build-depends:
+    cereal,
+    coalmine,
+    pgenie-protocol,
+    rerebase,

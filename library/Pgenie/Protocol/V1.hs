@@ -1,10 +1,10 @@
 module Pgenie.Protocol.V1 where
 
+import Coalmine.Prelude
 import qualified Domain
 import qualified DomainAeson
 import qualified DomainCereal
 import qualified DomainOptics
-import Pgenie.Protocol.Prelude
 import qualified Test.QuickCheck.Arbitrary.Generic as GenericArbitrary
 
 Domain.declare

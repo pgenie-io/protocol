@@ -40,6 +40,11 @@ deriving via
   instance
     GenericArbitrary.Arbitrary Response
 
+deriving via
+  (GenericArbitrary.GenericArbitrary Artifact)
+  instance
+    GenericArbitrary.Arbitrary Artifact
+
 instance BroadPrinting Request where
   toBroadBuilder = to . renderAsYamlText
 
@@ -47,4 +52,7 @@ instance BroadPrinting RequestProcess where
   toBroadBuilder = to . renderAsYamlText
 
 instance BroadPrinting Response where
+  toBroadBuilder = to . renderAsYamlText
+
+instance BroadPrinting Artifact where
   toBroadBuilder = to . renderAsYamlText

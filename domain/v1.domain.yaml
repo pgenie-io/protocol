@@ -3,12 +3,18 @@ Request:
   sum:
     process:
       product:
-        org: Name
+        space: Name
         name: Name
-        migrations: List (Path, Text)
-        queries: List (Path, Text)
+        migrations: BVec (Path, Text)
+        queries: BVec (Path, Text)
+        artifacts: BVec Artifact
 
 Response:
   sum:
     failed: Text
-    generated: List (Path, Text)
+    generated: BVec (Path, Text)
+
+Artifact:
+  enum:
+    - haskellHasql
+    - javaJdbc

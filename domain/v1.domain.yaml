@@ -7,14 +7,9 @@ Request:
         name: Name
         migrations: BVec (Path, Text)
         queries: BVec (Path, Text)
-        artifacts: BVec Artifact
+        artifacts: BVec Name
 
 Response:
   sum:
     failed: Text
     generated: BVec (Path, Text)
-
-Artifact:
-  enum:
-    - haskellHasql
-    - javaJdbc

@@ -1,0 +1,23 @@
+
+Request:
+  sum:
+    process:
+      product:
+        # Client app info. Allows to let the server request the user
+        # to upgrade.
+        clientVersion: Version
+        configVersion: Word
+        configContents: Text
+        migrations: BVec (Path, Text)
+        queries: BVec (Path, Text)
+
+Response:
+  sum:
+    failed: Text
+    generated: BVec (Path, Text)
+
+Version:
+  product:
+    major: Word16
+    minor: Word16
+    patch: Word16

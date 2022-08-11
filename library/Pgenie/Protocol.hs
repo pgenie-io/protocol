@@ -1,6 +1,6 @@
-module Pgenie.Protocol.V1 where
+module Pgenie.Protocol where
 
-import Coalmine.Prelude
+import Coalmine.Prelude hiding (Version)
 import qualified Domain
 import qualified DomainAeson
 import qualified DomainCereal
@@ -23,7 +23,7 @@ Domain.declare
         DomainCereal.serializeDeriver
       ]
   )
-  =<< Domain.loadSchema "domain/v1.domain.yaml"
+  =<< Domain.loadSchema "domain/protocol.domain.yaml"
 
 deriving via
   (GenericArbitrary.GenericArbitrary Request)
@@ -40,6 +40,11 @@ deriving via
   instance
     GenericArbitrary.Arbitrary Response
 
+deriving via
+  (GenericArbitrary.GenericArbitrary Version)
+  instance
+    GenericArbitrary.Arbitrary Version
+
 instance BroadPrinting Request where
   toBroadBuilder = to . renderAsYamlText
 
@@ -47,4 +52,7 @@ instance BroadPrinting RequestProcess where
   toBroadBuilder = to . renderAsYamlText
 
 instance BroadPrinting Response where
+  toBroadBuilder = to . renderAsYamlText
+
+instance BroadPrinting Version where
   toBroadBuilder = to . renderAsYamlText

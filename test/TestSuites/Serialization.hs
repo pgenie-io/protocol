@@ -6,7 +6,7 @@ import Coalmine.Prelude
 import Coalmine.Tasty
 import Coalmine.Tasty.TestTrees.Cereal
 import qualified Data.Serialize as Cereal
-import qualified Pgenie.Protocol.V1 as Protocol
+import qualified Pgenie.Protocol as Protocol
 
 initializeTests :: IO [TestTree]
 initializeTests =

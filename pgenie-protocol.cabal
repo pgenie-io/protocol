@@ -14,7 +14,7 @@ library
   import: language-settings
   hs-source-dirs: library
   exposed-modules:
-    Pgenie.Protocol.V1
+    Pgenie.Protocol
   build-depends:
     coalmine,
     domain,

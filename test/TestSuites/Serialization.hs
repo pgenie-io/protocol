@@ -1,12 +1,12 @@
 module TestSuites.Serialization where
 
-import qualified Coalmine.CerealExtras.Get as Get
+import Coalmine.CerealExtras.Get qualified as Get
 import Coalmine.Inter
 import Coalmine.Prelude
 import Coalmine.Tasty
 import Coalmine.Tasty.TestTrees.Cereal
-import qualified Data.Serialize as Cereal
-import qualified Pgenie.Protocol as Protocol
+import Data.Serialize qualified as Cereal
+import Pgenie.Protocol qualified as Protocol
 
 initializeTests :: IO [TestTree]
 initializeTests =

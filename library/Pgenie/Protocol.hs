@@ -1,11 +1,11 @@
 module Pgenie.Protocol where
 
 import Coalmine.Prelude hiding (Version)
-import qualified Domain
-import qualified DomainAeson
-import qualified DomainCereal
-import qualified DomainOptics
-import qualified Test.QuickCheck.Arbitrary.Generic as GenericArbitrary
+import Domain qualified
+import DomainAeson qualified
+import DomainCereal qualified
+import DomainOptics qualified
+import Test.QuickCheck.Arbitrary.Generic qualified as GenericArbitrary
 
 Domain.declare
   Nothing

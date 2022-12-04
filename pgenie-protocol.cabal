@@ -1,7 +1,7 @@
 cabal-version:      3.0
 name:               pgenie-protocol
 version:            0.1
-extra-source-files: domain/*.domain.yaml
+extra-source-files: **/*.domain.yaml
 
 common base-settings
   default-language:   Haskell2010
@@ -65,7 +65,7 @@ common executable-settings
 
 library
   import:          base-settings
-  hs-source-dirs:  library
+  hs-source-dirs:  libs/main
   exposed-modules: Pgenie.Protocol
   build-depends:
     , coalmine

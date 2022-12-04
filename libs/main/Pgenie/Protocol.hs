@@ -23,7 +23,7 @@ Domain.declare
         DomainCereal.serializeDeriver
       ]
   )
-  =<< Domain.loadSchema "domain/protocol.domain.yaml"
+  =<< Domain.loadSchema "libs/main/protocol.domain.yaml"
 
 deriving via
   (GenericArbitrary.GenericArbitrary Request)

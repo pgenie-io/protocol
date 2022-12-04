@@ -1,1 +1,1 @@
-resolver: https://raw.githubusercontent.com/pgenie-io/stack-snapshot/a33e44f7f906bd4696114e2c88541265373c02cd/snapshot.yaml
+resolver: .stack-snapshot/snapshot.yaml

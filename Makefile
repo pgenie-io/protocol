@@ -1,8 +1,8 @@
 all: format test-strictly
 
 format:
-	path=pgenie-protocol.cabal && cabal-fmt -c --indent 2 $$path || cabal-fmt -i $$path
-	ormolu --mode inplace -ce $$(find . -name "*.hs" -not -path "./.stack-snapshot/*" -not -path "./dist/*" -not -path "./dist-newstyle/*" -not -path "./.stack-work/*")
+	for path in $$(git diff --staged --name-only -- '*.cabal') $$(git ls-files -om --exclude-standard -- '*.cabal'); do if test -f $$path; then cabal-fmt --no-tabular -c $$path || cabal-fmt --no-tabular -i $$path; fi; done
+	for path in $$(git diff --staged --name-only -- '*.hs') $$(git ls-files -om --exclude-standard -- '*.hs'); do if test -f $$path; then ormolu -ic $$path; fi; done
 
 build-fast:
 	stack build --fast --test --no-run-tests --ghc-options "-j -threaded +RTS -A128m -n2m -RTS -fno-warn-typed-holes -fdefer-typed-holes"
